@@ -11,11 +11,22 @@ function openServer() {
   }
 }
 
-function channelActive() {
-  let channel = document.getElementsByClassName("channel");
-  channel[0].addEventListener("active", function () {
-    channel.style.backgroundColor = "#35373c";
+let channels = document.getElementsByClassName("channel");
+
+for (let channel of channels) {
+  channel.addEventListener("click", function () {
+    for (let ch of channels) {
+      ch.classList.remove("channel-active");
+      channel.classList.add("channel-active");
+    }
   });
 }
 
-console.log(channel);
+// for (let channel of channels) {
+//   channels[0].style.backgroundColor = "#35373c";
+// }
+// if (channel.classList.contains("channel-active")) {
+//   channel.addEventListener("click", function () {
+//     channel.classList.remove("channel-active");
+//   });
+// }
