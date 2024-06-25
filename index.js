@@ -12,8 +12,10 @@ function openServer() {
 }
 
 function channelActive() {
-  let channel = document.querySelector(".channel");
-  channel.addEventListener("active", function () {
+  let channel = document.getElementsByClassName("channel");
+  channel[0].addEventListener("active", function () {
     channel.style.backgroundColor = "#35373c";
   });
 }
+
+console.log(channel);
