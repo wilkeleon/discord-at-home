@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jittabug's Discord</title>
+    <style>
+      body {
+        height: 3000px;
+        box-sizing: border-box;
+        background-color: #313338;
+      }
+      .servers {
+        height: 100%;
+        display: inline-flex;
+        flex-direction: column;
+        background-color: #202226;
+        padding: 10px;
+      }
+      .plus {
+        cursor: pointer;
+      }
+      img {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .cat2 {
+        margin: 8px 0;
+      }
+
+      .server-active {
+        display: none;
+        background-color: white;
+        width: 70px;
+        height: 50px;
+        border-radius: 10px;
+        position: absolute;
+        left: -65px;
+        top: 16px;
+      }
+
+      .server {
+        display: none;
+        background-color: #2d2f33;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 90px;
+        width: 200px;
+        height: 100%;
+        padding: 0 1.5rem 1rem 1rem;
+      }
+      .category {
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+        padding-left: 10px;
+        margin-top: 1.5rem;
+      }
+      .plus {
+        color: #909090;
+        font-size: 2rem;
+      }
+      .channels {
+        color: #909090;
+        width: 215px;
+        cursor: pointer;
+      }
+
+      .channel {
+        font-size: 1.2rem;
+        padding: 10px 0 10px 10px;
+      }
+
+      .channel-active {
+        background-color: #35373c;
+        border-radius: 5px;
+      }
+
+      .content {
+        background-color: #313338;
+        height: 100vh;
+        position: fixed;
+        left: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="servers">
+      <div class="server-active"></div>
+      <img onclick="openServer()" src="./Assets/catssd.jpg" alt="" />
+      <img class="cat2" src="./Assets/cat2ssd.jpg" alt="" />
+      <img src="./Assets/dogssd.jpg" alt="" />
+    </div>
+    <div class="server">
+      <div class="category verify">
+        VERIFY
+        <div class="plus">+</div>
+      </div>
+      <div class="channels">
+        <div class="channel"># verify</div>
+      </div>
+
+      <div class="category info">
+        INFO
+        <div class="plus">+</div>
+      </div>
+      <div class="channels">
+        <div class="channel new-videos"># new-videos</div>
+        <div class="channel updates"># updates</div>
+        <div class="channel faq"># faq</div>
+      </div>
+
+      <div class="category chat">
+        CHAT
+        <div class="plus">+</div>
+      </div>
+      <div class="channels">
+        <div class="channel"># new-videos</div>
+        <div class="channel"># updates</div>
+        <div class="channel"># faq</div>
+      </div>
+
+      <div class="category upgrade">
+        UPGRADE
+        <div class="plus">+</div>
+      </div>
+      <div class="channels">
+        <div class="channel"># new-videos</div>
+        <div class="channel"># updates</div>
+        <div class="channel"># faq</div>
+      </div>
+
+      <div class="category tools">
+        TOOLS
+        <div class="plus">+</div>
+      </div>
+      <div class="channels">
+        <div class="channel"># new-videos</div>
+        <div class="channel"># updates</div>
+        <div class="channel"># faq</div>
+      </div>
+    </div>
+    <div class="content"></div>
+    <script>
+      function openServer() {
+        const server = document.querySelector(".server");
+        const serveractive = document.querySelector(".server-active");
+
+        if (server.style.display === "flex") {
+          server.style.display = "none";
+          serveractive.style.display = "none";
+        } else {
+          server.style.display = "flex";
+          serveractive.style.display = "block";
+        }
+      }
+
+      function channelActive() {
+        let channel = document.querySelector(".channel");
+        channel.addEventListener("active", function () {
+          channel.style.backgroundColor = "#35373c";
+        });
+      }
+    </script>
+  </body>
+</html>
