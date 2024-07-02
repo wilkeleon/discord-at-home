@@ -11,8 +11,13 @@ function openServer() {
   }
 }
 
-let channels = document.getElementsByClassName("channel");
+let channels = document.querySelectorAll(".channel");
+let channelActive = false;
 
+if (!channelActive) {
+  channels[0].classList.add("channel-active");
+  channelActive = true;
+}
 for (let channel of channels) {
   channel.addEventListener("click", function () {
     for (let ch of channels) {
@@ -22,11 +27,17 @@ for (let channel of channels) {
   });
 }
 
-// for (let channel of channels) {
-//   channels[0].style.backgroundColor = "#35373c";
-// }
-// if (channel.classList.contains("channel-active")) {
-//   channel.addEventListener("click", function () {
-//     channel.classList.remove("channel-active");
-//   });
-// }
+let allPlusButtons = document.querySelectorAll(".plus");
+let plusButtonActive = false;
+
+for (let plusButton of allPlusButtons) {
+  plusButton.addEventListener("click", function () {
+    plusButtonActive = true;
+    let newChannelPrompt = prompt("Channel Name:");
+    newChannelName = newChannelPrompt.value;
+    let newChannelElement = document.createElement("div");
+    let newChannelContent = document.createTextNode(newChannelName);
+    newChannelElement.appendChild(newChannelContent);
+    document.body.insert(newChannelElement, plusButton);
+  });
+}
