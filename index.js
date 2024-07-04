@@ -38,10 +38,10 @@ for (let plusButton of allPlusButtons) {
     for (let plusB of allPlusButtons) {
       if (plusB.classList.contains("plus-active")) {
         let newChannelName = prompt("Channel Name:");
-        let newChannelElement = document.createElement("div");
-        newChannelElement.innerHTML = newChannelName;
-        newChannelElement.classList.add("channel");
-        plusActive.insertAdjacentElement("afterend", newChannelElement);
+        // let newChannelElement = document.createElement("div");
+        // newChannelElement.innerHTML = newChannelName;
+        // newChannelElement.classList.add("channel");
+        // plusB.insertAdjacentElement("afterend", newChannelElement);
       }
     }
   });
