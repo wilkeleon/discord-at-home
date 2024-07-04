@@ -29,15 +29,20 @@ for (let channel of channels) {
 
 let allPlusButtons = document.querySelectorAll(".plus");
 let plusButtonActive = false;
+let plusActive = document.querySelector(".plus-active");
 
 for (let plusButton of allPlusButtons) {
   plusButton.addEventListener("click", function () {
     plusButtonActive = true;
-    let newChannelPrompt = prompt("Channel Name:");
-    newChannelName = newChannelPrompt.value;
-    let newChannelElement = document.createElement("div");
-    let newChannelContent = document.createTextNode(newChannelName);
-    newChannelElement.appendChild(newChannelContent);
-    document.body.insert(newChannelElement, plusButton);
+    plusButton.classList.add("plus-active");
+    for (let plusB of allPlusButtons) {
+      if (plusB.classList.contains("plus-active")) {
+        let newChannelName = prompt("Channel Name:");
+        let newChannelElement = document.createElement("div");
+        newChannelElement.innerHTML = newChannelName;
+        newChannelElement.classList.add("channel");
+        plusActive.insertAdjacentElement("afterend", newChannelElement);
+      }
+    }
   });
 }
