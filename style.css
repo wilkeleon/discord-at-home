@@ -2,6 +2,8 @@ body {
   height: 3000px;
   box-sizing: border-box;
   background-color: #313338;
+  margin: 0;
+  font-family: Helvetica Neue, sans-serif;
 }
 .servers {
   height: 100%;
